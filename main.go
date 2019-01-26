@@ -14,21 +14,22 @@ import (
 )
 
 func main() {
+	var apiKey = flag.String("key", "", "API key for The Blue Alliance Read API v3, available at https://www.thebluealliance.com/apidocs")
 	var eventCode = flag.String("event", "", "Event code from The Blue Alliance.\nExample: For https://www.thebluealliance.com/event/2019gadal the event code is 2019gadal")
 	var filterTeam = flag.String("team", "", "Filter the schedule for a specific team number\nExample: 2974")
 	flag.Parse()
 
-	if *eventCode != "" {
-		apiKey := "U9EN25M8zVayHwPHWZxSS6a1U3lRD8s3EByAadpK5jHpJJCdMl4F2NDOVrN57uxn"
-
-		matches := makeTBARequest(*eventCode, *filterTeam, apiKey)
+	if *apiKey == "" {
+		print("API key is required, pass it in with the -key flag")
+	} else if *eventCode == "" {
+		print("Event code is required, pass it in with the -event flag")
+	} else {
+		matches := makeTBARequest(*eventCode, *filterTeam, *apiKey)
 		if matches != nil {
 			fileName := writeToCSV(&matches, *eventCode, *filterTeam)
 
 			print("Results available in " + fileName)
 		}
-	} else {
-		print("Event code is required, pass it in with the -event flag")
 	}
 }
 

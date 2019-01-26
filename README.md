@@ -6,11 +6,11 @@ Adds a blank column after each team number to assign a team member to scout the 
 
 Get the schedule for an event:
 
-`TBAMatchScheduleDownload.exe -event 2019gadal`
+`TBAMatchScheduleDownload.exe -event 2019gadal -key someapikey`
 
 Get the schedule for an event and filter for a specific team number:
 
-`TBAMatchScheduleDownload.exe -event 2019gadal -team 2974`
+`TBAMatchScheduleDownload.exe -event 2019gadal -team 2974 -key someapikey`
 
 View help:
 
@@ -21,6 +21,9 @@ If there is no event schedule available the resulting CSV file will be empty.
 
 ## Command Line Arguments
 
+- key (required)
+  - API key for The Blue Alliance Read API v3 
+  - https://www.thebluealliance.com/apidocs
 - event (required)
   - Event code from The Blue Alliance.
   - Example: For https://www.thebluealliance.com/event/2019gadal the event code is 2019gadal
