@@ -20,15 +20,15 @@ func main() {
 	flag.Parse()
 
 	if *apiKey == "" {
-		print("API key is required, pass it in with the -key flag")
+		println("API key is required, pass it in with the -key flag")
 	} else if *eventCode == "" {
-		print("Event code is required, pass it in with the -event flag")
+		println("Event code is required, pass it in with the -event flag")
 	} else {
 		matches := makeTBARequest(*eventCode, *filterTeam, *apiKey)
 		if matches != nil {
 			fileName := writeToCSV(&matches, *eventCode, *filterTeam)
 
-			print("Results available in " + fileName)
+			println("Results available in " + fileName + ".csv")
 		}
 	}
 }

@@ -33,6 +33,6 @@ If there is no event schedule available the resulting CSV file will be empty.
 
 ## Building
 
-Windows builds available on the [Releases](https://github.com/fortinj1354/TBAMatchScheduleDownload/releases) page.
+Windows and MacOS builds available on the [Releases](https://github.com/fortinj1354/TBAMatchScheduleDownload/releases) page.
 
 Built on Go 1.11.5, can be built for any OS by using the standard [build](https://golang.org/pkg/go/build/) command.
